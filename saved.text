@@ -1,0 +1,31 @@
+    def put(self, key: str, value: object) -> None:
+        #print(self._hash_function(key))
+        hashvalue = self._hash_function(key)
+        #print(self.get_size() == 0)
+        #print(self._buckets[0].insert(key,value))
+        print(hashvalue)
+        if(self.get_size() == 0):
+            self._buckets[0]
+            self._buckets[0].insert(hashvalue,value)
+            print(self._buckets[0].length())
+            self._size+=1
+            return
+        
+        for x in range(self._capacity):
+            if(self._buckets[x].contains(hashvalue) != None):
+                self._buckets[x].insert(hashvalue, value)
+                self._size+=1
+                print(self._buckets[x].length())
+                print("woah",x)
+                return
+                #print(self._buckets[x])
+            
+            if(self._buckets[x].length() == 0):
+                break
+    
+        print("hi", x)
+        self._buckets[x].insert(hashvalue,value)
+        print(self._buckets[x].length())
+        self._size+=1
+        #print(self._buckets[x])
+        return
